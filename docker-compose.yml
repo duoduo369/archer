@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  archer_web:
+    build: .
+    command: python archer/manage.py runserver 0.0.0.0:8765
+    volumes:
+      - .:/opt/projects/archer
+    ports:
+      - "8765:8765"

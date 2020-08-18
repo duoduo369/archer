@@ -1,0 +1,14 @@
+Archer
+===
+
+新一代 django 项目开发脚手架。
+
+[original](https://github.com/duoduo369/original) 的 django 3.x 版本, 添加docker支持。
+
+安装 && 本地运行
+---
+
+* 安装 docker
+* cp archer/config/settings/private.example.py archer/config/settings/private.py(看一下，宿主机建立对应数据库\用户)
+* docker-compose up
+* http://0.0.0.0:8765

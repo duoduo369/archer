@@ -1,3 +1,4 @@
 Django==3.1
 arrow==0.15.8
 ipython==7.17.0
+mysqlclient==2.0.1
