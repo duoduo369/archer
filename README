@@ -9,6 +9,20 @@ Archer
 ---
 
 * 安装 docker
-* cp archer/config/settings/private.example.py archer/config/settings/private.py(看一下，宿主机建立对应数据库\用户)
+* cp archer/config/settings/private.example.py archer/config/settings/private.py(看一下，mysql docker建立对应数据库\用户)
+* docker volume create archer_mysql
 * docker-compose up
 * http://0.0.0.0:8765
+* 如果数据库有问题见下面
+* docker-compose run api python archer/manage.py migrate
+
+数据库如果有问题
+
+* docker exec -it archer_mysql bash
+* mysql -uroot -p 密码 archer
+* 创建对应数据库和用户, 见 `archer/config/settings/private.py`
+
+    CREATE DATABASE IF NOT EXISTS archer DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+    CREATE USER 'archer'@'%' IDENTIFIED BY 'archer';
+    GRANT ALL ON archer.* TO 'archer'@'%';
+    FLUSH PRIVILEGES;
